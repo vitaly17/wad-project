@@ -51,6 +51,16 @@ def authorized?
   end
 end
 
+def current_user
+      if $credentials
+        if $credentials[0] != ' '
+        User.first(:username => $credentials[0])
+      else
+        nil
+        end
+      end
+end
+
 end
 
 get '/' do
@@ -75,6 +85,7 @@ get '/create' do
 end
 
 get '/edit' do
+  protected!
   info = ""
   file = File.open("wiki.txt")
   file.each do |line|
@@ -90,6 +101,12 @@ put '/edit' do
   @info = info
   file = File.open("wiki.txt", "w")
   file.puts @info
+  file.close
+  
+  update_time = Time.now
+  @update_data = update_time.strftime('%Y/%m/%d %H:%M %p') + " Edited by: " + current_user.username
+  file = File.new("logs/#{update_time.to_s}.txt", "w")
+  file.puts @update_data
   file.close
   redirect '/'
 end
@@ -167,7 +184,7 @@ put '/user/:uzer' do
 end
 
 get '/user/delete/:uzer' do
-# protected!
+  protected!
   n = User.first(:username => params[:uzer])
     if n.username == "Admin"
     erb :denied
