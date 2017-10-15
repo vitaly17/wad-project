@@ -20,8 +20,10 @@
   
 <br><br>
 
-<h2>This is your own personal create page!</h2>
+<h2>User</h2>
 
-<section id="add">
-  <p> <%= $myinfo %> </p>
-</section>
+<% if @Userz %>
+<article>
+  <h1>Account - <%= @Userz.username %></h1>
+</article>
+<% end %>

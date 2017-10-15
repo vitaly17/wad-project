@@ -1,4 +1,19 @@
 require 'sinatra'
+require 'data_mapper'
+
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wiki.db")
+
+class User 
+  include DataMapper::Resource 
+    property :id, Serial 
+    property :username, Text, :required => true 
+    property :password, Text, :required => true 
+    property :date_joined, DateTime 
+    property :edit, Boolean, :required => true, :default => false 
+end
+
+DataMapper.finalize.auto_upgrade!
+
 $myinfo = "Vitaly Amos"
 @info = ""
 
@@ -51,6 +66,59 @@ put '/edit' do
   file.puts @info
   file.close
   redirect '/'
+end
+
+get '/login' do 
+  erb :login 
+end
+
+post '/login' do
+  $credentials = [params[:username],params[:password]] 
+  @Users = User.first(:username => $credentials[0]) 
+    if @Users 
+      if @Users.password == $credentials[1]
+        redirect '/' 
+      else
+        $credentials = [' ',' '] 
+        redirect '/wrongaccount'
+      end
+      else
+        $credentials = [' ',' '] 
+        redirect '/wrongaccount' 
+    end 
+end
+
+get '/wrongaccount' do 
+  erb :wrongaccount 
+end
+
+get '/user/:uzer' do
+  @Userz = User.first(:username => params[:uzer]) 
+    if @Userz != nil
+    erb :profile else
+    redirect '/noaccount'
+    end
+end
+
+get '/createaccount' do 
+  erb :createaccount 
+end
+
+post '/createaccount' do 
+  n = User.new
+  n.username = params[:username]
+  n.password = params[:password]
+  n.date_joined = Time.now 
+    if n.username == "Admin" and n.password == "Password"
+    n.edit = true
+    end
+  n.save 
+  redirect '/' 
+end
+
+get '/logout' do 
+  $credentials = [' ',' '] 
+  redirect '/' 
 end
 
 not_found do

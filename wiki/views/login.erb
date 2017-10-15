@@ -3,8 +3,8 @@
   <a href="/create">Create</a><br>
   <a href="/about">About</a><br>
   <a href="/edit">Edit</a><br>
-  
-  <% if $credentials %>
+ 
+ <% if $credentials %>
   <% if $credentials[0] != ' ' %>
     Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
       <a href="/logout">Logout</a><br><br>
@@ -17,11 +17,15 @@
   <% else %>
     <a href="/login">Login</a><br>
   <% end %>
-  
+ 
 <br><br>
 
-<h2>This is your own personal create page!</h2>
+<h2>Login</h2><br>
 
-<section id="add">
-  <p> <%= $myinfo %> </p>
-</section>
+<form action="/login" method="post">
+  Username:<input type="text" name="username"><br>
+  Password: <input type="password" name="password"><br>
+  <input type="submit" value="Login!">
+</form>
+
+<p>Not have an account? <a href="/createaccount">Create Account</a></p>
