@@ -27,6 +27,32 @@ def readFile(filename)
   $myinfo = info
 end
 
+helpers do
+
+def protected!
+  if authorized?
+  return
+  end
+  redirect '/denied'
+end
+
+def authorized?
+  if $credentials != nil
+  @Userz = User.first(:username => $credentials[0])
+    if @Userz
+      if @Userz.edit == true
+      return true
+      else
+      return false
+      end
+    else
+    return false
+    end
+  end
+end
+
+end
+
 get '/' do
   info = "Hello there!"
   len = info.length
@@ -121,7 +147,44 @@ get '/logout' do
   redirect '/' 
 end
 
+get '/notfound' do
+  erb :notfound
+end
+
+get '/noaccount' do
+  erb :noaccount
+end
+
+get '/denied' do
+  erb :denied
+end
+
+put '/user/:uzer' do
+  n = User.first(:username => params[:uzer])
+  n.edit = params[:edit] ? 1 : 0
+  n.save
+  redirect '/'
+end
+
+get '/user/delete/:uzer' do
+# protected!
+  n = User.first(:username => params[:uzer])
+    if n.username == "Admin"
+    erb :denied
+    else
+    n.destroy
+    @list2 = User.all :order => :id.desc
+    erb :admincontrols
+    end
+end
+
+get '/admincontrols' do
+  protected!
+  @list2 = User.all :order => :id.desc
+  erb :admincontrols
+end
+
 not_found do
   status 404
-  redirect '/'
+  redirect '/notfound'
 end

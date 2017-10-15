@@ -1,0 +1,22 @@
+<b>Menu</b><br>
+  <a href="/">Home</a><br>
+  <a href="/create">Create</a><br>
+  <a href="/about">About</a><br>
+  <a href="/edit">Edit</a><br>
+<% if $credentials %>
+<% if $credentials[0] != '' %>
+  Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
+    <a href="/logout">Logout</a><br><br>
+<% if $credentials[0] == "Admin" %>
+  <br><a href="/admincontrols">Admin Controls</a><br>
+<% end %>
+<% else %>
+  <a href="/login">Login</a><br>
+<% end %>
+<% else %>
+  <a href="/login">Login</a><br>
+<% end %>
+<br><br>
+
+<p>This page does not exist!</p>
+<p>Please notify the administrator.</p>
