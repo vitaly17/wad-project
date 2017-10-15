@@ -21,42 +21,16 @@ get '/' do
   len = @info.length
   len2 = len - 1
   len3 = len2 - len1
-  @info = @info + len3.to_s
-  '<html><body>' +
-  '<b>Menu</b><br>' +
-  '<a href="/">Home</a><br>' +
-  '<a href="/create">Create</a><br>' +
-  '<a href="/about">About</a><br>' +
-  '<a href="/edit">Edit</a><br>' +
-  '<br><br>' + @info +
-  '</body></html>'
+  @words = len3.to_s
+  erb :home
 end
 
 get '/about' do
-  '<html><body>' +
-  '<b>Menu</b><br>' +
-  '<a href="/">Home</a><br>' +
-  '<a href="/create">Create</a><br>' +
-  '<a href="/about">About</a><br>' +
-  '<a href="/edit">Edit</a><br>' +
-  '<br><br>' +
-  '<h2>About us</h2>' +
-  '<p>This wiki was created by </p>' + $myinfo +
-  '<p>Staff ID: XXXXXXXX</p>' +
-  '</body></html>'
+  erb :about
 end
 
 get '/create' do
-  '<html><body>' +
-  '<b>Menu</b><br>' +
-  '<a href="/">Home</a><br>' +
-  '<a href="/create">Create</a><br>' +
-  '<a href="/about">About</a><br>' +
-  '<a href="/edit">Edit</a><br>' +
-  '<br><br>' +
-  '<h2>This is your own personal create page!</h2>' +
-  '<section id="add">' + $myinfo + '</section>' +
-  '</body></html>'
+  erb :create
 end
 
 get '/edit' do
@@ -67,14 +41,7 @@ get '/edit' do
   end
   file.close
   @info = info
-  
-  '<h2>Edit article</h2><br>' +
-  '<form action="/edit" method="post" id="edit">' +
-  '<input type="hidden" name="_method" value="put">' +
-  '<textarea rows="20" cols="90" name="message">' + @info + '</textarea>' +
-  '<input type="submit" value="Update">' +
-  '</form>' +
-  '<p><a href="../reset">Reset</a></p>'
+  erb :edit
 end
 
 put '/edit' do
