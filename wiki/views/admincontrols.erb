@@ -19,6 +19,16 @@
 <br><br>
 
 <h2>Admin controls page</h2>
+
+<form action="/archive" method="post" id="archive">
+  <input type="submit" value="Archive Wiki">
+</form>
+
+<form action="/reset" method="post" id="reset">
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Reset Wiki">
+</form>
+
 <p><b>User list</b></p><br>
 <p>Username - DateJoined - Edit?</p>
 <% @list2.each do |liste| %>

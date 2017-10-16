@@ -61,6 +61,21 @@ def current_user
       end
 end
 
+def reset
+    readFile("original.txt")
+    @info = $myinfo 
+    file = File.open("wiki.txt", "w")
+    file.puts @info
+    file.close
+    
+    reset_time = Time.now
+    @reset_data = reset_time.strftime('%Y/%m/%d %H:%M %p') + " Reset by: " + current_user.username
+    file = File.new("logs/#{reset_time.to_s}.txt", "w")
+    file.puts @reset_data
+    file.close
+    redirect '/'
+end
+
 end
 
 get '/' do
@@ -199,6 +214,20 @@ get '/admincontrols' do
   protected!
   @list2 = User.all :order => :id.desc
   erb :admincontrols
+end
+
+put '/reset' do
+    reset
+end
+
+post '/archive' do
+  readFile("wiki.txt")
+  @info = $myinfo
+  archived_time = Time.now
+  file = File.new("archived/#{archived_time.to_s}.txt", "w")
+  file.puts @info
+  file.close
+  redirect '/admincontrols'
 end
 
 not_found do
