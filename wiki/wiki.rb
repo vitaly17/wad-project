@@ -151,14 +151,38 @@ get '/wrongaccount' do
 end
 
 get '/user/:uzer' do
-  @Userz = User.first(:username => params[:uzer]) 
-    if @Userz != nil
-    erb :profile else
+  @user = User.first(:username => params[:uzer]) 
+    if @user != nil
+    erb :profile 
+    else
     redirect '/noaccount'
     end
 end
 
+get '/user/edit/:uzer' do
+  @user = User.first(:username => params[:uzer]) 
+    if @user != nil
+    erb :profile 
+    else
+    redirect '/noaccount'
+    end
+ end
+
+  
+put '/user/:uzer' do
+ @list2 = User.all
+ @user = User.first(:username => params[:uzer])
+    @user.username = params[:username]
+    @user.password = params[:password]
+    @user.edit = params[:edit] ? 1 : 0
+    @user.save
+    $credentials = [' ',' ']  
+    redirect '/login'
+end
+
+
 get '/createaccount' do 
+  @user = User.new
   erb :createaccount 
 end
 
@@ -189,13 +213,6 @@ end
 
 get '/denied' do
   erb :denied
-end
-
-put '/user/:uzer' do
-  n = User.first(:username => params[:uzer])
-  n.edit = params[:edit] ? 1 : 0
-  n.save
-  redirect '/'
 end
 
 get '/user/delete/:uzer' do

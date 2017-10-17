@@ -27,3 +27,7 @@
   <h1>Account - <%= @Userz.username %></h1>
 </article>
 <% end %>
+
+<form method="POST" action= "/user/<%= @user.username %>" </form>
+<input type="hidden" name="_method" value="put">
+<%= erb :user_form %>

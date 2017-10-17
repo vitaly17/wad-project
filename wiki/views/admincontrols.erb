@@ -29,18 +29,19 @@
   <input type="submit" value="Reset Wiki">
 </form>
 
+<form action="/createaccount" method="get" id="create_user">
+  <input type="submit" value="Create new user">
+</form>
+
 <p><b>User list</b></p><br>
 <p>Username - DateJoined - Edit?</p>
 <% @list2.each do |liste| %>
 <article>
   <p>
     <%= liste.username %> - <%= liste.date_joined %> - <%= liste.edit %>
-      <form action="/user/<%= liste.username %>" method="post" id="edit">
-        <input type="hidden" name="_method" value="put">
-        <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
-        <input type="submit" value="Allow Edit?">
-      </form>
-    <a href="/user/delete/<%= liste.username %>">Delete User?</a>
+      
+    <a href="/user/edit/<%= liste.username %>">Edit User</a>
+    <a href="/user/delete/<%= liste.username %>">Delete User</a>
   </p>
 </article>
 <% end %>
