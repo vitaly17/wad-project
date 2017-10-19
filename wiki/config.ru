@@ -1,2 +1,2 @@
 require './wiki'
-run Sinatra::Application
+run MyApp
