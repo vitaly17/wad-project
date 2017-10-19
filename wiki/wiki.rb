@@ -2,7 +2,8 @@ require 'sinatra'
 require 'data_mapper'
 require 'dm-sqlite-adapter'
 require 'diffy'
-require './environments'
+
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wiki.db")
 
 class User 
   include DataMapper::Resource 
@@ -14,9 +15,6 @@ class User
 end
 
 DataMapper.finalize.auto_upgrade!
-
-
-class MyApp < Sinatra::Base
 
 $myinfo = "" 
 @info = ""
@@ -308,6 +306,4 @@ end
 not_found do
   status 404
   redirect '/notfound'
-end
-
 end
