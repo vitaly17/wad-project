@@ -1,3 +1,2 @@
-require "wiki"
-
+require './wiki'
 run Sinatra::Application

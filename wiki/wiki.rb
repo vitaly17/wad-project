@@ -1,9 +1,8 @@
-require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
 require 'diffy'
+require './environments'
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wiki.db")
 
 class User 
   include DataMapper::Resource 
