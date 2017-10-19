@@ -4,5 +4,5 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'diffy'
 gem 'sqlite3', :group => :development
-gem 'dm-postgres-adapter', :group => :production
 gem 'dm-sqlite-adapter', :group => :development
+gem 'pg', :group => :production
