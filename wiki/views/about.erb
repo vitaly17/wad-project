@@ -1,27 +1,8 @@
-<b>Menu</b><br>
-  <a href="/">Home</a><br>
-  <a href="/create">Create</a><br>
-  <a href="/about">About</a><br>
-  <a href="/edit">Edit</a><br>
-  
-  <% if $credentials %>
-  <% if $credentials[0] != ' ' %>
-    Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
-      <a href="/logout">Logout</a><br><br>
-      <% if $credentials[0] == "Admin" %>
-        <br><a href="/admincontrols">Admin Controls</a><br>
-      <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  
-<br><br>
-
-<h2>About us</h2>
-
-<p>This wiki was created by </p>
-<p> <%= $myinfo %> </p>
-<p>Staff ID: XXXXXXXX</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2>About us</h2><br>
+    <p>This wiki was created by Vitaly Amos</p><br><br>
+    <p>Staff ID: 51772933</p><br><br>
+    <p>Email: vitaly.amos.17 at aberdeen.ac.uk</p><br>
+  </div>
+</div>

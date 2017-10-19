@@ -1,47 +1,49 @@
-<b>Menu</b><br>
-  <a href="/">Home</a><br>
-  <a href="/create">Create</a><br>
-  <a href="/about">About</a><br>
-  <a href="/edit">Edit</a><br>
-<% if $credentials %>
-<% if $credentials[0] != '' %>
-  Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
-    <a href="/logout">Logout</a><br><br>
-<% if $credentials[0] == "Admin" %>
-  <br><a href="/admincontrols">Admin Controls</a><br>
-<% end %>
-<% else %>
-  <a href="/login">Login</a><br>
-<% end %>
-<% else %>
-  <a href="/login">Login</a><br>
-<% end %>
-<br><br>
+<div class= "row">
+  <div class="col-md-9">
+    <h2>Admin controls page</h2>
+    <h3>User list:</h3><br>
 
-<h2>Admin controls page</h2>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>DateJoined</th>
+            <th>Allowed to edit?</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @list2.each do |liste| %>
+          <tr>
+            <td><%= liste.username %></td>
+            <td><%= liste.date_joined %></td>
+            <td><%= liste.edit %></td>
+            <td><a href="/user/edit/<%= liste.username %>" class="btn btn-primary btn-xs" >Edit User</a></td>
+            <td><a href="/user/delete/<%= liste.username %>" class="btn btn-danger btn-xs">Delete User</a></td>
+          </tr>
+        </tbody>
+         <% end %>
+      </table>
+    
+    
+  </div>
 
-<form action="/archive" method="post" id="archive">
-  <input type="submit" value="Archive Wiki">
-</form>
-
-<form action="/reset" method="post" id="reset">
-  <input type="hidden" name="_method" value="put">
-  <input type="submit" value="Reset Wiki">
-</form>
-
-<form action="/createaccount" method="get" id="create_user">
-  <input type="submit" value="Create new user">
-</form>
-
-<p><b>User list</b></p><br>
-<p>Username - DateJoined - Edit?</p>
-<% @list2.each do |liste| %>
-<article>
-  <p>
-    <%= liste.username %> - <%= liste.date_joined %> - <%= liste.edit %>
-      
-    <a href="/user/edit/<%= liste.username %>">Edit User</a>
-    <a href="/user/delete/<%= liste.username %>">Delete User</a>
-  </p>
-</article>
-<% end %>
+  <div class= "col-md-offset-1 col-md-2"> <br><br><br>
+    <h3>Admin actions:</h3><br><br>
+      <form action="/createaccount" method="get" id="create_user">
+      <input type="submit" value="Create new user" class="btn btn-primary btn-block">
+      </form>
+    <br>
+      <form action="/archive" method="post" id="archive">
+      <input type="submit" value="Archive Wiki" class="btn btn-warning btn-block">
+      </form>
+    <br>
+      <form action="/reset" method="post" id="reset">
+      <input type="hidden" name="_method" value="put">
+      <input type="submit" value="Reset Wiki" class="btn btn-danger btn-block">
+      </form>
+    <br>
+  </div>
+</div>

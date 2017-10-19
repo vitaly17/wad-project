@@ -1,33 +1,12 @@
-<b>Menu</b><br>
-  <a href="/">Home</a><br>
-  <a href="/create">Create</a><br>
-  <a href="/about">About</a><br>
-  <a href="/edit">Edit</a><br>
-  
-  <% if $credentials %>
-  <% if $credentials[0] != ' ' %>
-    Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
-      <a href="/logout">Logout</a><br><br>
-      <% if $credentials[0] == "Admin" %>
-        <br><a href="/admincontrols">Admin Controls</a><br>
-      <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  
-<br><br>
-
-<h2>User</h2>
-
-<% if @Userz %>
-<article>
-  <h1>Account - <%= @Userz.username %></h1>
-</article>
-<% end %>
-
-<form method="POST" action= "/user/<%= @user.username %>" </form>
-<input type="hidden" name="_method" value="put">
-<%= erb :user_form %>
+<div class="row">
+  <div class = "col-md-4 col-md-offset-4">
+    <% if @user %>
+    <h2>User profile: <%= @user.username %></h2><br><br>
+    <% end %>
+      <form method="POST" action= "/user/<%= @user.username %>" class="form-group"</form>
+      <input type="hidden" name="_method" value="put">
+      
+      <%= erb :user_form %>
+      
+  </div>
+</div>

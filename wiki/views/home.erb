@@ -1,33 +1,17 @@
-<b>Menu</b><br>
-  <a href="/">Home</a><br>
-  <a href="/create">Create</a><br>
-  <a href="/about">About</a><br>
-  <a href="/edit">Edit</a><br>
-  
-  <% if $credentials %>
-  <% if $credentials[0] != ' ' %>
-    Logged in as <br><a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a><br><br>
-      <a href="/logout">Logout</a><br><br>
-      <% if $credentials[0] == "Admin" %>
-        <br><a href="/admincontrols">Admin Controls</a><br>
-      <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  <% else %>
-    <a href="/login">Login</a><br>
-  <% end %>
-  
-<br><br>
-
-<p>Welcome to WAD wiki. A free online encyclopedia of knowledge that can be viewed by anyone!</p>
-<p>Feel free to search for anything you desire! And if it does not exist then create it!</p>
-<p>Use the menu to the left to navigate the site!</p>
-
-<div id="content" style="background-color:#EEEEEE;height:340px;width:500px;float:left;">
-  <%= @info %>
-</div>
-
-<div id="content" style="background-color:#EEEEEE;height:340px;width:500px;float:left;">
-  Number of words: <%= @words %>
+<div class="row">
+    <div class="col-md-2 leftcolumn">
+        <p>Words: <%= @words %></p> <br>
+        <p>Lines: <%= @lines %></p> <br>
+        <p>Characters (ex.spaces): <%= @chars_no_spaces %></p> 
+    </div>
+    
+    <div class="col-md-10 rightcolumn">
+        <h2>Can anyone learn to programme?</h2>
+        <%= @intro_text %> <br><br>
+        
+        <div>
+            <%= @file_info %>
+        </div>
+        
+    </div>
 </div>
