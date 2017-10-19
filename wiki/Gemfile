@@ -2,6 +2,5 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 gem 'sinatra'
 gem 'data_mapper'
-gem 'dm-sqlite-adapter', :group => :development
 gem 'diffy'
 gem 'sqlite3', :group => :development
