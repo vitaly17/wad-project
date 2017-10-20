@@ -1,8 +1,8 @@
-<label for="username">Username:</label> <br><br>
+<label for="username">Username:</label> <br>
 <input id="username" class="form-control" type="text" name="username" value="<%= @user.username %>"
 
 <br><br>
-<label for="password">Password:</label><br><br>
+<label for="password">Password:</label><br>
 <input id="password" class="form-control" type="password" name="password" value="<%= @user.password %>"
 
 <% if $credentials %>
@@ -17,4 +17,5 @@
 <% end %>
 
 <br><br>
-<input type="submit" value="Save User" class="btn btn-primary btn-block">
+<input type="submit" value="Submit" class="btn btn-primary btn-block">
+</form>

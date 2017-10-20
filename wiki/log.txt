@@ -1,78 +1,62 @@
 
-2017/10/19 09:27 AM Reset by: Admin
+2017/10/20 12:19 PM Login by: Admin
 
-2017/10/19 09:27 AM Edited by: Admin-
--<br>
-+first line.
+2017/10/20 12:21 PM Profile edited: newuser1 Edited by: Admin
 
-2017/10/19 09:28 AM Edited by: Admin-first line.
--<br>
-+first
+2017/10/20 12:21 PM Logout by: Admin
 
-2017/10/19 09:29 AM Edited by: Admin-first
--<br>
-+hi there
-+second line
+2017/10/20 12:22 PM Login by: newuser1
 
-2017/10/19 09:29 AM Edited by: Admin-hi there
--<br>second line
--<br>
-+there
-+second line
+2017/10/20 12:23 PM Edited by: newuser1
+-
++However, despite the manuals being provided by its manufacturer and those recipe books out there, mastering a bread maker is still a matter of our personal experience and various experiments. So, could you share some of your thoughts, experiences and recipes? Would you like to learn some secrets and how to avoid certain mistakes? You are very welcome to join us and do it all here. You can update this page by clicking on 'Edit' link on the top menu. Your text will appear below.
++
++recipe 1
++water
++flour
 
-2017/10/19 09:29 AM Reset by: Admin
+2017/10/20 12:24 PM Logout by: newuser1
 
-2017/10/19 09:30 AM Edited by: Admin-
--<br>
-+first line
-+second line
-+third line
+2017/10/20 12:25 PM Login by: monkey
 
-2017/10/19 09:30 AM Profile edited: user Edited by: Admin
+2017/10/20 12:26 PM Logout by: monkey
 
-2017/10/19 09:30 AM Logout by: Admin
+2017/10/20 12:26 PM Login by: Admin
 
-2017/10/19 09:31 AM Login by: user
+2017/10/20 12:26 PM Edited by: Admin
+ However, despite the manuals being provided by its manufacturer and those recipe books out there, mastering a bread maker is still a matter of our personal experience and various experiments. So, could you share some of your thoughts, experiences and recipes? Would you like to learn some secrets and how to avoid certain mistakes? You are very welcome to join us and do it all here. You can update this page by clicking on 'Edit' link on the top menu. Your text will appear below.
+ 
+ recipe 1
+-water
++oil
+ flour
 
-2017/10/19 09:31 AM Edited by: user-first line
--<br>second line
--<br>third line
--<br>
-+first line welcome
-+second line to wiki
+2017/10/20 12:27 PM Reset by: Admin
 
-2017/10/19 09:32 AM Edited by: user first line welcome
--<br>second line to wiki
--<br>
-+second line to
+2017/10/20 12:27 PM Logout by: Admin
 
-2017/10/19 09:37 AM Login by: Admin
+2017/10/20 13:10 PM Login by: Admin
 
-2017/10/19 09:37 AM Reset by: Admin
+2017/10/20 13:26 PM Profile edited: user_created_by_admin Edited by: Admin
 
-2017/10/19 09:37 AM Edited by: Admin-
-+first line
-+second line
+2017/10/20 13:28 PM Edited by: Admin
+-
++This is the wiki edit that Admin likes and want to keep it in the archive.
 
-2017/10/19 09:38 AM Edited by: Admin-first line
--second line
-+first line new
-+line
+2017/10/20 13:28 PM Edited by: Admin
+-This is the wiki edit that Admin likes and want to keep it in the archive.
++This is the wiki edit that Admin likes and wants to keep it in the archive.
 
-2017/10/19 09:41 AM Login by: user
+2017/10/20 13:36 PM Reset by: Admin
 
-2017/10/19 09:41 AM Edited by: user Edits made: 
-+hi there
- first line new
--line
+2017/10/20 13:41 PM Logout by: Admin
 
-2017/10/19 09:43 AM Login by: Admin
+2017/10/20 13:42 PM Login by: user
 
-2017/10/19 09:43 AM Edited by: Admin
- hi there
--first line new
-+new wiki
+2017/10/20 13:45 PM Edited by: user
+-
++I would like to add my favourite bread recipe.
 
-2017/10/19 22:25 PM Login by: Admin
+2017/10/20 14:01 PM Login by: user
 
-2017/10/19 22:25 PM Reset by: Admin
+2017/10/20 14:46 PM Logout by: user

@@ -3,7 +3,7 @@
     <% if @user %>
     <h2>User profile: <%= @user.username %></h2><br><br>
     <% end %>
-      <form method="POST" action= "/user/<%= @user.username %>" class="form-group"</form>
+      <form method="post" action= "/user/<%= @user.username %>" class="form-group">
       <input type="hidden" name="_method" value="put">
       
       <%= erb :user_form %>

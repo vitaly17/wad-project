@@ -1,74 +1,74 @@
-html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
 h1 {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 32px;
+  margin-top: 15px;
+  margin-bottom: 12px;
+  font-size: 30px;
   font-weight: bold;
+  color: #eb9114;
+}
+
+h5 {
+  font-style: italic;
+  margin-bottom: 15px;
+  font-family: "Verdana", Arial, sans-serif;
 }
 
 body {
   background-color: #f1f3f3;
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: "Verdana", Arial, sans-serif;
   padding: 20px;
   text-align: center;
   color: #262626;
+  font-size: 14px;
+}
+
+th, td {
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+img {
+   border: solid 1px #ccc;
+}
+
+.navbar-nav > li > a {
+  margin-top:15px; 
+  padding-top:5px !important; 
+  padding-bottom:5px !important;
+  color: #cc6600 !important;
+}
+
+.navbar-nav > li > a:hover {
+  margin-top:15px; 
+  padding-top:5px !important; 
+  padding-bottom:5px !important;
+  color:#ff6600 !important;
   font-size: 16px;
 }
 
-th {
-  text-align: center;
+.navbar {
+  min-height:30px !important;
+  border-radius: 5px;
+  border: solid 1px #ccc;
 }
 
 .leftcolumn {
   
-  padding: 60px 5px;
+  padding: 50px 5px;
+  margin-top: 18px;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
+}
+
+.main {
+  
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  min-height: 270px;
 }
 
 .edit {
@@ -80,11 +80,24 @@ th {
   border: solid 2px #ccc;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
 .footer {
   position: absolute;
   bottom: 0;
-  width: 98%;
-  height: 30px;
-  font-size: 14px;
+  width: 97%;
   text-align: center;
+  font-size:12px;
+  
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #f5f5f5;
 }

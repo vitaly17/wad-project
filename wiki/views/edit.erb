@@ -1,11 +1,10 @@
 <div class="row">
   <div class="col-md-2 leftcolumn">
     <p>Words: <%= @words %></p> <br>
-    <p>Lines: <%= @lines %></p> <br>
     <p>Characters (excl.spaces): <%= @chars_no_spaces %></p> 
   </div>
   
-  <div class="col-md-10 rightcolumn">    
+  <div class="col-md-10">    
     <h2>Edit article</h2><br>
       <form action="/edit" method="post" id="edit" class="form-group">
       <input type="hidden" name="_method" value="put" class="form-control">

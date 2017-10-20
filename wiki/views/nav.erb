@@ -25,12 +25,12 @@
     <li>
      <% if $credentials %>
      <% if $credentials[0] != ' ' %>
-     <a href="/user/<%= $credentials[0] %>"><span class="glyphicon glyphicon-user"></span> User Profile | <%= $credentials[0] %></a>
+     <a href="/user/<%= $credentials[0] %>"><span class="glyphicon glyphicon-user"></span> User Profile | <%= $credentials[0] %></a><br>
     </li>
-    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a><br></li>
     <li>
      <% if $credentials[0] == "Admin" %>
-     <a href="/admincontrols"><span class="glyphicon glyphicon-cog"></span> Admin Controls</a>
+     <a href="/admincontrols"><span class="glyphicon glyphicon-cog"></span> Admin Controls</a><br>
     </li>
      <% end %>
      <% else %>

@@ -81,11 +81,10 @@ end
 end
 
 get '/' do
-  @intro_text = "Some would say that there are individuals who just find programming too difficult. Others suggest that anyone can learn to programme if they set there mind 
-        to it. What do you think? You can add your thoughts or edit this page by clicking on 'Edit' link on the top menu. Your text will appear below."
   readFile("wiki.txt")
   # wiki spec file asks for words and characters count but pdf spec file also shows line count, so all those counts are implemented 
   @file_info = $myinfo
+  # we need to make certain adjustments as we added line break tag formatting so the lines are shown on the home page same way as on edit 
   @words = @file_info.split(" ").length - 1
   @lines = File.readlines("wiki.txt").size - 1
   @chars_no_spaces = @file_info.gsub(/\s+/, '').length - (@lines+1) *4
@@ -98,7 +97,7 @@ end
 
 get '/edit' do
   protected!
-  # we need additional variable to display text in edit view without br tags so we dont use readFile helper here
+  # we need additional variable to display text in edit view without <br> tags so we dont use readFile helper here
   info = ""
   file = File.open("wiki.txt")
   file.each do |line|
@@ -106,10 +105,12 @@ get '/edit' do
   end
   file.close
   @file_info = $myinfo
-  # we need to subtract a certain number or words, chars and lines as we added line breaks formatting so the lines are shown on the home page same way as on edit 
+  # we need to make certain adjustments as we added <br> tag formatting so the lines are shown on the home page same way as on edit 
   @words = @file_info.split(" ").length - 1
   @lines = File.readlines("wiki.txt").size - 1
   @chars_no_spaces = @file_info.gsub(/\s+/, '').length - (@lines+1) *4
+  @info = info
+  erb :edit
   @info = info
   erb :edit
 end
@@ -180,6 +181,7 @@ get '/wrongaccount' do
 end
 
 get '/user/:uzer' do
+  protected!
   @user = User.first(:username => params[:uzer]) 
     if @user != nil
     erb :profile
@@ -189,6 +191,7 @@ get '/user/:uzer' do
 end
 
 get '/user/edit/:uzer' do
+  protected!
   @user = User.first(:username => params[:uzer]) 
     if @user != nil
     erb :profile 
@@ -245,8 +248,9 @@ post '/createaccount' do
     n.edit = true
     end
   n.save 
-  redirect '/' 
+  redirect '/login' 
 end
+
 
 get '/logout' do 
   #Recording logout date, time and username in a log file as per extra spec 

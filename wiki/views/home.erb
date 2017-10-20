@@ -1,15 +1,25 @@
 <div class="row">
+    
     <div class="col-md-2 leftcolumn">
+        <p><img src="/pic.jpg" alt="homemade bread" width="100%"></p><br><br>
         <p>Words: <%= @words %></p> <br>
-        <p>Lines: <%= @lines %></p> <br>
-        <p>Characters (ex.spaces): <%= @chars_no_spaces %></p> 
+        <p>Characters (excl.spaces): <%= @chars_no_spaces %></p> 
     </div>
     
-    <div class="col-md-10 rightcolumn">
-        <h2>Can anyone learn to programme?</h2>
-        <%= @intro_text %> <br><br>
+    <div class="col-md-10">
+        <h2>How to make good bread using Panasonic breadmakers?</h2><br>
         
-        <div>
+        <p> We all love good home-made bread. At the same time not everyone likes the hassle of manual baking. This is where a special machine comes in. 
+        The machine that is called a bread maker. There are several bread maker brands and usually a few models within each brand. Nowadays many people 
+        have tried Panasonic and liked it. Lots of others will be very happy one day when they discover them. Panasonic is arguably the leading brand for 
+        the past and current generations of bread makers.</p>
+
+        <p> However, despite the manuals being provided by its manufacturer and those recipe books out there, mastering a bread maker is still a matter 
+        of our personal experience and various experiments. So, could you share some of your thoughts, experiences and recipes? Would you like to learn 
+        some secrets and how to avoid certain mistakes? You are very welcome to join us and do it all here. You can update this page by clicking on 'Edit' 
+        link on the top menu. Your text will appear below. </p><br>
+
+        <div class="main">
             <%= @file_info %>
         </div>
         
